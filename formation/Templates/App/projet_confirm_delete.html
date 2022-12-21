@@ -1,0 +1,5 @@
+<form method="post">
+    {% csrf_token %}
+<p>Ete vous sur de vouloir suprrimer le  {{object.nom_projet}}</p>
+<input type="submit" value="confirmer">
+</form>

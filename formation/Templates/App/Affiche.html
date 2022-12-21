@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+La liste des projets est {{projets|length}}
+<h1>Affiche</h1>
+<table border="1">
+    <tr>
+        <td>Nom</td>
+        <td>Durée</td>
+        <td>Créateur</td>
+        <td>Delete</td>
+        <td>Update</td>
+    </tr>
+{% for p in projets %}
+<tr>
+    <td>{{ p.nom_projet}}</td>
+    <td>{{ p.duree_projet}}</td>
+    <td>{{ p.createur.nom}}</td>
+    <td><a href="{% url 'delete_projet' p.id %}">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock  %}

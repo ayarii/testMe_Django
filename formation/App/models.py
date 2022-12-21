@@ -3,12 +3,14 @@ from  django.core.exceptions import ValidationError
 from  django.core.validators import MinValueValidator,MaxValueValidator
 # Create your models here.
 def is_mail_esprit(mail):
-    if str(mail).endswith("@esprit.tn")==False
-        raise ValidationError('mail non valide',params=('m':mail))
+    if str(mail).endswith("@esprit.tn")==False:
+        raise ValidationError('mail non valide',params={'m':mail})
 class User(models.Model):
     nom= models.CharField('Nom',max_length=255)
     prenom= models.CharField(max_length=255)
     email= models.EmailField(validators=[is_mail_esprit])
+    def __str__(self):
+        return  "Le nom est "+self.nom+"le prenom est" +self.prenom
 class Etudiant(User):
    groupe= models.CharField(max_length=255)
 class coach(User):
