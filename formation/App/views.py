@@ -33,6 +33,10 @@ class AjoutProjet(CreateView):
     # 2ème méthode avec forms
     form_class= AjoutForm
     success_url=reverse_lazy("Aff")
-
+class UpdateProjet(UpdateView):
+    model=Projet
+    form_class= AjoutForm 
+    success_url=reverse_lazy("Aff")  
+    
 
     
